@@ -4,7 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { WeatherBackground } from "@/components/WeatherBackground";
-import { searchLocations, getWeatherData, type WeatherData, type LocationData } from "@/lib/weather";
+import {
+  searchLocations,
+  getWeatherData,
+  type WeatherData,
+  type LocationData,
+} from "@/lib/weather";
 
 export default function Index() {
   const [query, setQuery] = useState("");
@@ -37,9 +42,13 @@ export default function Index() {
     setLoading(true);
     setShowSuggestions(false);
     setQuery(`${location.name}, ${location.country}`);
-    
+
     try {
-      const weather = await getWeatherData(location.lat, location.lon, location.name);
+      const weather = await getWeatherData(
+        location.lat,
+        location.lon,
+        location.name,
+      );
       setWeatherData(weather);
     } catch (error) {
       console.error("Error fetching weather data:", error);
@@ -58,20 +67,27 @@ export default function Index() {
 
   const getWeatherIcon = (condition: string) => {
     switch (condition) {
-      case "sunny": return "☀️";
-      case "cloudy": return "☁️";
-      case "rainy": return "🌧️";
-      case "stormy": return "⛈️";
-      case "snowy": return "❄️";
-      case "foggy": return "🌫️";
-      default: return "🌤️";
+      case "sunny":
+        return "☀️";
+      case "cloudy":
+        return "☁️";
+      case "rainy":
+        return "🌧️";
+      case "stormy":
+        return "⛈️";
+      case "snowy":
+        return "❄️";
+      case "foggy":
+        return "🌫️";
+      default:
+        return "🌤️";
     }
   };
 
   return (
     <div className="min-h-screen relative">
       {weatherData && <WeatherBackground condition={weatherData.condition} />}
-      
+
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Header */}
         <header className="p-6">
@@ -117,8 +133,12 @@ export default function Index() {
                       >
                         <MapPin className="h-4 w-4 text-gray-500" />
                         <div>
-                          <div className="font-medium text-gray-900">{location.name}</div>
-                          <div className="text-sm text-gray-500">{location.country}</div>
+                          <div className="font-medium text-gray-900">
+                            {location.name}
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            {location.country}
+                          </div>
                         </div>
                       </button>
                     ))}
@@ -141,27 +161,39 @@ export default function Index() {
               <Card className="bg-white/20 backdrop-blur-md border-white/20 shadow-xl rounded-3xl">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
-                    <div className="text-6xl mb-2">{getWeatherIcon(weatherData.condition)}</div>
-                    <h2 className="text-3xl font-bold text-white mb-1">{weatherData.location}</h2>
-                    <p className="text-white/70 capitalize">{weatherData.description}</p>
+                    <div className="text-6xl mb-2">
+                      {getWeatherIcon(weatherData.condition)}
+                    </div>
+                    <h2 className="text-3xl font-bold text-white mb-1">
+                      {weatherData.location}
+                    </h2>
+                    <p className="text-white/70 capitalize">
+                      {weatherData.description}
+                    </p>
                   </div>
 
                   <div className="text-center mb-6">
                     <div className="text-6xl font-light text-white mb-2">
                       {weatherData.temperature}°C
                     </div>
-                    <p className="text-white/80">Feels like {weatherData.feelsLike}°C</p>
+                    <p className="text-white/80">
+                      Feels like {weatherData.feelsLike}°C
+                    </p>
                   </div>
 
                   <div className="grid grid-cols-3 gap-4">
                     <div className="text-center p-4 bg-white/10 rounded-xl backdrop-blur-sm">
                       <Droplets className="h-6 w-6 text-white/70 mx-auto mb-2" />
-                      <div className="text-white font-semibold">{weatherData.humidity}%</div>
+                      <div className="text-white font-semibold">
+                        {weatherData.humidity}%
+                      </div>
                       <div className="text-white/70 text-sm">Humidity</div>
                     </div>
                     <div className="text-center p-4 bg-white/10 rounded-xl backdrop-blur-sm">
                       <Wind className="h-6 w-6 text-white/70 mx-auto mb-2" />
-                      <div className="text-white font-semibold">{weatherData.windSpeed} km/h</div>
+                      <div className="text-white font-semibold">
+                        {weatherData.windSpeed} km/h
+                      </div>
                       <div className="text-white/70 text-sm">Wind Speed</div>
                     </div>
                     <div className="text-center p-4 bg-white/10 rounded-xl backdrop-blur-sm">
@@ -179,9 +211,12 @@ export default function Index() {
               <Card className="bg-white/20 backdrop-blur-md border-white/20 shadow-xl rounded-3xl">
                 <CardContent className="p-8 text-center">
                   <div className="text-6xl mb-4">🌍</div>
-                  <h2 className="text-2xl font-bold text-white mb-2">Welcome to WeatherScope</h2>
+                  <h2 className="text-2xl font-bold text-white mb-2">
+                    Welcome to WeatherScope
+                  </h2>
                   <p className="text-white/80 mb-6">
-                    Search for any city to see current weather conditions with beautiful animated backgrounds
+                    Search for any city to see current weather conditions with
+                    beautiful animated backgrounds
                   </p>
                   <Button
                     onClick={() => setQuery("Mumbai")}
@@ -195,8 +230,6 @@ export default function Index() {
             )}
           </div>
         </div>
-
-
       </div>
     </div>
   );

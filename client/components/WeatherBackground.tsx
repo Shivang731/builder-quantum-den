@@ -58,7 +58,7 @@ function RainyBackground() {
       {/* Dark clouds */}
       <div className="absolute top-12 left-4 w-48 h-24 bg-gray-700/80 rounded-full animate-float-slow"></div>
       <div className="absolute top-24 right-8 w-40 h-20 bg-gray-800/70 rounded-full animate-float"></div>
-      
+
       {/* Rain drops */}
       <div className="absolute inset-0">
         {Array.from({ length: 100 }).map((_, i) => (
@@ -83,10 +83,10 @@ function StormyBackground() {
       {/* Very dark clouds */}
       <div className="absolute top-8 left-0 w-52 h-26 bg-gray-900/90 rounded-full animate-float-slow"></div>
       <div className="absolute top-16 right-4 w-48 h-24 bg-black/80 rounded-full animate-float"></div>
-      
+
       {/* Lightning effect */}
       <div className="absolute inset-0 animate-lightning opacity-0"></div>
-      
+
       {/* Heavy rain */}
       <div className="absolute inset-0">
         {Array.from({ length: 150 }).map((_, i) => (
@@ -111,7 +111,7 @@ function SnowyBackground() {
       {/* Snow clouds */}
       <div className="absolute top-16 left-8 w-44 h-22 bg-white/90 rounded-full animate-float-slow"></div>
       <div className="absolute top-32 right-12 w-48 h-24 bg-gray-100/80 rounded-full animate-float"></div>
-      
+
       {/* Snowflakes */}
       <div className="absolute inset-0">
         {Array.from({ length: 80 }).map((_, i) => (
