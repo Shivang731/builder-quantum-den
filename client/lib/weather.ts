@@ -25,14 +25,16 @@ export async function searchLocations(query: string): Promise<LocationData[]> {
   await new Promise(resolve => setTimeout(resolve, 500));
   
   const mockLocations: LocationData[] = [
-    { name: "New York", country: "US", lat: 40.7128, lon: -74.0060 },
-    { name: "London", country: "GB", lat: 51.5074, lon: -0.1278 },
-    { name: "Tokyo", country: "JP", lat: 35.6762, lon: 139.6503 },
-    { name: "Paris", country: "FR", lat: 48.8566, lon: 2.3522 },
-    { name: "Sydney", country: "AU", lat: -33.8688, lon: 151.2093 },
     { name: "Mumbai", country: "IN", lat: 19.0760, lon: 72.8777 },
-    { name: "Dubai", country: "AE", lat: 25.2048, lon: 55.2708 },
-    { name: "Berlin", country: "DE", lat: 52.5200, lon: 13.4050 },
+    { name: "Delhi", country: "IN", lat: 28.6139, lon: 77.2090 },
+    { name: "Bangalore", country: "IN", lat: 12.9716, lon: 77.5946 },
+    { name: "Chennai", country: "IN", lat: 13.0827, lon: 80.2707 },
+    { name: "Kolkata", country: "IN", lat: 22.5726, lon: 88.3639 },
+    { name: "Hyderabad", country: "IN", lat: 17.3850, lon: 78.4867 },
+    { name: "Pune", country: "IN", lat: 18.5204, lon: 73.8567 },
+    { name: "Ahmedabad", country: "IN", lat: 23.0225, lon: 72.5714 },
+    { name: "Jaipur", country: "IN", lat: 26.9124, lon: 75.7873 },
+    { name: "Lucknow", country: "IN", lat: 26.8467, lon: 80.9462 },
   ];
   
   return mockLocations.filter(location => 
