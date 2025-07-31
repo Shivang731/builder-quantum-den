@@ -183,12 +183,12 @@ export default function Index() {
                   <p className="text-white/80 mb-6">
                     Search for any city to see current weather conditions with beautiful animated backgrounds
                   </p>
-                  <Button 
-                    onClick={() => setQuery("London")}
+                  <Button
+                    onClick={() => setQuery("Mumbai")}
                     className="bg-white/20 hover:bg-white/30 text-white border-white/20 backdrop-blur-sm"
                     variant="outline"
                   >
-                    Try London
+                    Try Mumbai
                   </Button>
                 </CardContent>
               </Card>
