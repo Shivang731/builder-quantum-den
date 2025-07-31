@@ -196,14 +196,7 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="p-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-white/60 text-sm drop-shadow">
-              Powered by modern web technologies • Built with React & Tailwind CSS
-            </p>
-          </div>
-        </footer>
+
       </div>
     </div>
   );
